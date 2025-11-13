@@ -5,260 +5,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ApartRent - דירות להשכרה</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
   <script defer src="js/script.js"></script>
 
-  <!-- חיזוק קטן מקומי כדי לוודא ניגודיות ושקיפות של מצבי קצה גם אם CSS חיצוני ישן בקאש -->
   <style>
-    .btn { background:#00587a; color:#fff; border:0; font-weight:700 }
-    .btn:hover { filter:brightness(1.07) }
-    .btn-light { background:#fff; color:#0f3057; border:1px solid #0f3057 }
-    #noResults.hidden{display:none}
+    /* Popup */
+    .popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;justify-content:center;align-items:center;z-index:2000}
+    .popup{background:#fff;color:#333;border-radius:16px;padding:24px;width:90%;max-width:650px;box-shadow:0 4px 18px rgba(0,0,0,.3);animation:fadeIn .3s ease;position:relative;overflow-y:auto;max-height:90vh}
+    .popup img{width:100%;border-radius:12px;margin-bottom:16px}
+    .popup h3{margin-top:0;color:var(--primary)}
+    .popup .close-btn{position:absolute;top:10px;right:16px;background:none;border:none;font-size:1.6rem;color:#555;cursor:pointer}
+    .popup .close-btn:hover{color:var(--secondary);transform:scale(1.06)}
+    .popup form{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+    .popup input,.popup textarea{padding:10px;border-radius:8px;border:1px solid #ccc;font-size:1rem}
+    .popup button[type="submit"]{background:var(--secondary);color:#fff;font-weight:700;border:none;padding:10px;border-radius:8px;cursor:pointer}
+    .popup button[type="submit"]:hover{background:var(--accent);color:#000}
+    @keyframes fadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+
+    /* כותרות מעל שדות הסינון */
+    .search-field{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+    .search-field label{font-weight:600;font-size:14px;color:var(--text-dark)}
   </style>
 </head>
 
 <body>
-<!DOCTYPE html>
-<html lang="he">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ApartRent</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-color: #0f3057;
-      --accent-color: #f9d342;
-      --light-bg: #f5f7fa;
-      --dark-bg: #1b1b1b;
-      --light-text: #222;
-      --dark-text: #eee;
-    }
+  <header class="site-header">
+    <h1 class="site-logo">
+  <img src="images/index_logo.png" alt="ApartRent Logo">
+  ApartRent
+</h1>
 
-    body {
-      font-family: "Heebo", sans-serif;
-      margin: 0;
-      background-color: var(--light-bg);
-      color: var(--light-text);
-      padding-top: 75px;
-      transition: background-color 0.4s, color 0.4s;
-    }
-
-    header {
-      background-color: var(--primary-color);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 40px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a.active {
-      color: var(--accent-color);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 2px;
-    }
-
-    nav a:hover {
-      color: var(--accent-color);
-    }
-
-    #theme-toggle {
-      background-color: #e0e0e0;
-      border: none;
-      font-size: 1.2rem;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    #theme-toggle:hover {
-      transform: scale(1.1);
-      background-color: #d5d5d5;
-    }
-
-    footer {
-      background-color: var(--primary-color);
-      color: #fff;
-      text-align: center;
-      padding: 16px;
-      font-size: 0.9rem;
-      transition: background-color 0.4s;
-    }
-
-    /* מצב לילה */
-    body.dark-mode {
-      background-color: var(--dark-bg);
-      color: var(--dark-text);
-    }
-
-    body.dark-mode header {
-      background-color: #111;
-    }
-
-    body.dark-mode footer {
-      background-color: #111;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <h1>🏡 ApartRent</h1>
-    <nav>
+    <button id="floating-theme-btn" class="floating-theme-btn">🌙</button>
+    <nav class="navbar">
       <ul>
         <li><a href="index.html">בית</a></li>
-        <li><a href="apartments.html">דירות</a></li>
-        <li><a href="services.html">שירותים</a></li>
+        <li><a href="apartments.html" class="active">דירות</a></li>
+        <li><a href="help.html">כאן כדי לעזור</a></li>
         <li><a href="about.html">אודות</a></li>
-        <li><button id="theme-toggle" title="החלף מצב תאורה">🌙</button></li>
         <li><a href="contact.html">צור קשר</a></li>
       </ul>
     </nav>
   </header>
 
-
   <main>
     <section class="apartments">
       <h2>מצא את הדירה שלך</h2>
 
-      <!-- פס חיפוש -->
+      <!-- פס סינון -->
       <div class="search-bar">
-        <input id="qCity" type="text" placeholder="עיר / אזור (למשל: תל אביב)" inputmode="text" />
-
-        <div class="range-wrap" style="min-width:320px">
-          <label for="maxPrice">מקסימום מחיר (₪):</label>
-          <input id="maxPrice" type="range" min="2000" max="12000" step="100" value="12000" />
-          <output id="priceOut" for="maxPrice">12,000 ₪</output>
+        <div class="search-field">
+          <label for="qCity">עיר / מילות חיפוש</label>
+          <input id="qCity" type="text" placeholder="לדוגמה: תל אביב / בצפון / מרפסת" />
         </div>
 
-        <select id="minRooms" aria-label="מינימום חדרים">
-          <option value="0">מינ׳ חדרים (כולם)</option>
-          <option value="1">1+</option>
-          <option value="2">2+</option>
-          <option value="3">3+</option>
-          <option value="4">4+</option>
-          <option value="5">5+</option>
-        </select>
+        <div class="search-field">
+          <label for="minRooms">מספר חדרים</label>
+          <select id="minRooms">
+            <option value="0">מינ׳ חדרים (כולם)</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+            <option value="5">5+</option>
+          </select>
+        </div>
 
-        <button id="doSearch" class="btn">חיפוש</button>
-        <button id="clearFilters" class="btn btn-light" type="button">ניקוי</button>
+        <div class="search-field range-wrap" style="min-width:320px">
+          <label for="maxPrice">מקסימום מחיר (₪)</label>
+          <div style="display:flex;align-items:center;gap:10px;min-width:300px">
+            <input id="maxPrice" type="range" min="2000" max="12000" step="100" value="12000" />
+            <output id="priceOut" for="maxPrice">12,000 ₪</output>
+          </div>
+        </div>
+
+        <div class="search-field">
+          <label style="opacity:0;">.</label>
+          <button id="clearFilters" class="btn btn-light" type="button">ניקוי</button>
+        </div>
       </div>
 
       <!-- כרטיסים -->
       <div id="cards" class="grid-container">
-        <div class="apartment-card" data-city="תל אביב" data-rooms="4" data-price="8200">
-          <img src="images/apt5.jpg" alt="דירה במרכז תל אביב">
-          <h3>דירה במרכז תל אביב</h3>
-          <p>דירת יוקרה מעוצבת, 4 חדרים, קרובה לים. מחיר: 8,200 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="תל אביב" data-rooms="1" data-price="3200" data-img="images/apt1.jpg" data-desc="דירת סטודיו נעימה במרכז תל אביב.">
+          <img src="images/apt1.jpg" alt=""><h3>דירה במרכז העיר</h3><p>חדר אחד • 3,200 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="תל אביב" data-rooms="3" data-price="7900">
-          <img src="images/apt6.jpg" alt="דירה ברחוב הירקון">
-          <h3>דירה ברחוב הירקון</h3>
-          <p>דירה מוארת עם סלון ענק ומרפסת שמש, נוף מדהים לים. 7,900 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="תל אביב" data-rooms="2" data-price="4800" data-img="images/apt2.jpg" data-desc="דירה עם סלון גדול ומטבח מאובזר בצפון הישן.">
+          <img src="images/apt2.jpg" alt=""><h3>דירה בצפון הישן</h3><p>2 חדרים • 4,800 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="הרצליה" data-rooms="3" data-price="9100">
-          <img src="images/apt7.jpg" alt="דירה בהרצליה פיתוח">
-          <h3>דירה בהרצליה פיתוח</h3>
-          <p>דירת גן מהממת עם יציאה לחצר פרטית, 3 חדרים. מחיר: 9,100 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="רמת גן" data-rooms="3" data-price="6100" data-img="images/apt3.jpg" data-desc="דירת גן מקסימה עם חצר פרטית.">
+          <img src="images/apt3.jpg" alt=""><h3>דירת גן ברמת גן</h3><p>3 חדרים • 6,100 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="רחובות" data-rooms="5" data-price="6200">
-          <img src="images/apt8.jpg" alt="דירה ברחובות">
-          <h3>דירה ברחובות</h3>
-          <p>דירת משפחה מרווחת עם מעלית וחניה, 5 חדרים. מחיר: 6,200 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="תל אביב" data-rooms="3" data-price="6900" data-img="images/apt4.jpg" data-desc="דירת 3 חדרים מוארת ליד הים.">
+          <img src="images/apt4.jpg" alt=""><h3>דירה ליד הים</h3><p>3 חדרים • 6,900 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="נתניה" data-rooms="3" data-price="5900">
-          <img src="images/apt9.jpg" alt="דירה בנתניה">
-          <h3>דירה בנתניה</h3>
-          <p>דירה עם נוף לים, קרובה לטיילת, 3 חדרים. מחיר: 5,900 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="תל אביב" data-rooms="4" data-price="8200" data-img="images/apt5.jpg" data-desc="דירת יוקרה מעוצבת במרכז תל אביב, קרובה לים.">
+          <img src="images/apt5.jpg" alt=""><h3>דירה במרכז תל אביב</h3><p>4 חדרים • 8,200 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="פתח תקווה" data-rooms="4" data-price="6300">
-          <img src="images/apt10.jpg" alt="דירה בפתח תקווה">
-          <h3>דירה בפתח תקווה</h3>
-          <p>דירת 4 חדרים בבניין חדש עם חניה פרטית. מחיר: 6,300 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="תל אביב" data-rooms="3" data-price="7900" data-img="images/apt6.jpg" data-desc="דירה עם מרפסת שמש ענקית ונוף לים.">
+          <img src="images/apt6.jpg" alt=""><h3>דירה ברחוב הירקון</h3><p>3 חדרים • 7,900 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="ראשון לציון" data-rooms="4" data-price="7500">
-          <img src="images/apt11.jpg" alt="דירה בראשון לציון">
-          <h3>דירה בראשון לציון</h3>
-          <p>דירת דופלקס מהממת, קומה 8, נוף פתוח. מחיר: 7,500 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="הרצליה" data-rooms="3" data-price="9100" data-img="images/apt7.jpg" data-desc="דירת גן מהממת בהרצליה פיתוח עם חניה פרטית.">
+          <img src="images/apt7.jpg" alt=""><h3>דירה בהרצליה פיתוח</h3><p>3 חדרים • 9,100 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="אשדוד" data-rooms="3" data-price="5800">
-          <img src="images/apt12.jpg" alt="דירה באשדוד">
-          <h3>דירה באשדוד</h3>
-          <p>3 חדרים, נוף לים, חניה צמודה. מחיר: 5,800 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="רחובות" data-rooms="5" data-price="6200" data-img="images/apt8.jpg" data-desc="דירת משפחה רחבה במרכז רחובות, עם מעלית וחניה.">
+          <img src="images/apt8.jpg" alt=""><h3>דירה ברחובות</h3><p>5 חדרים • 6,200 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="חיפה" data-rooms="4" data-price="6700">
-          <img src="images/apt13.jpg" alt="דירה בחיפה">
-          <h3>דירה בחיפה</h3>
-          <p>דירה יפיפייה ברחוב שקט, נוף לים, 4 חדרים. מחיר: 6,700 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="נתניה" data-rooms="3" data-price="5900" data-img="images/apt9.jpg" data-desc="דירה עם נוף ים מדהים וקרבה לטיילת.">
+          <img src="images/apt9.jpg" alt=""><h3>דירה בנתניה</h3><p>3 חדרים • 5,900 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="באר שבע" data-rooms="1" data-price="3400">
-          <img src="images/apt14.jpg" alt="דירה בבאר שבע">
-          <h3>דירה בבאר שבע</h3>
-          <p>דירת סטודיו ליד האוניברסיטה. מחיר: 3,400 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="פתח תקווה" data-rooms="4" data-price="6300" data-img="images/apt10.jpg" data-desc="דירה חדשה בפתח תקווה עם מעלית וחניה פרטית.">
+          <img src="images/apt10.jpg" alt=""><h3>דירה בפתח תקווה</h3><p>4 חדרים • 6,300 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="אילת" data-rooms="3" data-price="8900">
-          <img src="images/apt15.jpg" alt="דירה באילת">
-          <h3>דירה באילת</h3>
-          <p>דירת נופש עם נוף לים, מרפסת גדולה. מחיר: 8,900 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="ראשון לציון" data-rooms="4" data-price="7500" data-img="images/apt11.jpg" data-desc="דירת דופלקס מודרנית בקומה גבוהה עם נוף פתוח.">
+          <img src="images/apt11.jpg" alt=""><h3>דירה בראשון לציון</h3><p>4 חדרים • 7,500 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="רמת גן" data-rooms="4" data-price="6600">
-          <img src="images/apt16.jpg" alt="דירה ברמת גן">
-          <h3>דירה ברמת גן</h3>
-          <p>4 חדרים, ליד הספארי, מרפסת שמש. מחיר: 6,600 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="אשדוד" data-rooms="3" data-price="5800" data-img="images/apt12.jpg" data-desc="דירה מרווחת באשדוד עם חניה ונוף לים.">
+          <img src="images/apt12.jpg" alt=""><h3>דירה באשדוד</h3><p>3 חדרים • 5,800 ₪</p>
         </div>
-
-        <div class="apartment-card" data-city="כפר סבא" data-rooms="5" data-price="7100">
-          <img src="images/apt17.jpg" alt="דירה בכפר סבא">
-          <h3>דירה בכפר סבא</h3>
-          <p>דירת גג עם נוף ירוק, 5 חדרים. מחיר: 7,100 ₪ לחודש.</p>
+        <div class="apartment-card" data-city="חיפה" data-rooms="4" data-price="6700" data-img="images/apt13.jpg" data-desc="דירה מוארת עם נוף לים ברחוב שקט.">
+          <img src="images/apt13.jpg" alt=""><h3>דירה בחיפה</h3><p>4 חדרים • 6,700 ₪</p>
+        </div>
+        <div class="apartment-card" data-city="באר שבע" data-rooms="1" data-price="3400" data-img="images/apt14.jpg" data-desc="דירת סטודיו ליד אוניברסיטת בן גוריון.">
+          <img src="images/apt14.jpg" alt=""><h3>דירה בבאר שבע</h3><p>1 חדר • 3,400 ₪</p>
+        </div>
+        <div class="apartment-card" data-city="אילת" data-rooms="3" data-price="8900" data-img="images/apt15.jpg" data-desc="דירת נופש יוקרתית עם נוף ים פנורמי באילת.">
+          <img src="images/apt15.jpg" alt=""><h3>דירה באילת</h3><p>3 חדרים • 8,900 ₪</p>
+        </div>
+        <div class="apartment-card" data-city="רמת גן" data-rooms="4" data-price="6600" data-img="images/apt16.jpg" data-desc="דירה נעימה ליד הספארי ברמת גן.">
+          <img src="images/apt16.jpg" alt=""><h3>דירה ברמת גן</h3><p>4 חדרים • 6,600 ₪</p>
+        </div>
+        <div class="apartment-card" data-city="כפר סבא" data-rooms="5" data-price="7100" data-img="images/apt17.jpg" data-desc="דירת גג מהממת בכפר סבא עם נוף ירוק.">
+          <img src="images/apt17.jpg" alt=""><h3>דירה בכפר סבא</h3><p>5 חדרים • 7,100 ₪</p>
         </div>
       </div>
 
@@ -266,25 +143,100 @@
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 ApartRent | כל הזכויות שמורות</p>
-  </footer>
+  <!-- Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <button class="close-btn" id="closePopup">✖</button>
+      <img src="" id="popupImg" alt="">
+      <h3 id="popupTitle"></h3>
+      <p id="popupDesc"></p>
+      <form>
+        <input type="text" placeholder="שם מלא" required>
+        <input type="email" placeholder="אימייל ליצירת קשר" required>
+        <textarea rows="4" placeholder="כתוב את ההודעה שלך כאן..." required></textarea>
+        <button type="submit">שלח פנייה</button>
+      </form>
+    </div>
+  </div>
+
+  <footer><p>© 2025 ApartRent | כל הזכויות שמורות</p></footer>
 
   <script>
-  const toggleBtn = document.getElementById("theme-toggle");
-  const body = document.body;
+    // מצב לילה
+    const toggleBtn=document.getElementById("theme-toggle");
+    const body=document.body;
+    if(localStorage.getItem("theme")==="dark"){body.classList.add("dark");toggleBtn.textContent="☀️";}
+    toggleBtn.addEventListener("click",()=>{const isDark=body.classList.toggle("dark");
+      toggleBtn.textContent=isDark?"☀️":"🌙";
+      localStorage.setItem("theme",isDark?"dark":"light");});
 
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark-mode");
-    toggleBtn.textContent = "☀️";
-  }
+    // Popup
+    const cardsAll=document.querySelectorAll(".apartment-card");
+    const overlay=document.getElementById("popupOverlay");
+    const imgEl=document.getElementById("popupImg");
+    const titleEl=document.getElementById("popupTitle");
+    const descEl=document.getElementById("popupDesc");
+    const closeBtn=document.getElementById("closePopup");
 
-  toggleBtn.addEventListener("click", () => {
-    const isDark = body.classList.toggle("dark-mode");
-    toggleBtn.textContent = isDark ? "☀️" : "🌙";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
-</script>
+    cardsAll.forEach(c=>{
+      c.addEventListener("click",()=>{
+        imgEl.src=c.dataset.img;
+        titleEl.textContent=c.querySelector("h3").textContent;
+        descEl.textContent=c.dataset.desc || "";
+        overlay.style.display="flex";
+      });
+    });
+    closeBtn.addEventListener("click",()=>overlay.style.display="none");
+    overlay.addEventListener("click",e=>{ if(e.target===overlay) overlay.style.display="none"; });
 
+    // --- סינון חי: עיר/כותרת/תיאור + מחיר + חדרים ---
+    const qCity=document.getElementById("qCity");
+    const maxPrice=document.getElementById("maxPrice");
+    const priceOut=document.getElementById("priceOut");
+    const minRooms=document.getElementById("minRooms");
+    const noResults=document.getElementById("noResults");
+
+    const fmt = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    function filterNow(){
+      const q=(qCity.value||"").toLowerCase().trim();
+      const max=Number(maxPrice.value||12000);
+      const roomsMin=Number(minRooms.value||0);
+
+      let shown=0;
+      document.querySelectorAll(".apartment-card").forEach(card=>{
+        const city=(card.dataset.city||"").toLowerCase();
+        const title=(card.querySelector("h3")?.innerText||"").toLowerCase();
+        const desc=(card.dataset.desc||"").toLowerCase();
+        const rooms=Number(card.dataset.rooms||0);
+        const price=Number(card.dataset.price||0);
+
+        const textMatch = q==="" || city.includes(q) || title.includes(q) || desc.includes(q);
+        const ok = textMatch && rooms>=roomsMin && price<=max;
+
+        card.style.display = ok ? "" : "none";
+        if(ok) shown++;
+      });
+      noResults.classList.toggle("hidden", shown!==0);
+    }
+
+    // אירועים – בזמן אמת
+    qCity.addEventListener("input", filterNow);
+    minRooms.addEventListener("change", filterNow);
+    maxPrice.addEventListener("input", ()=>{ priceOut.textContent=`${fmt(maxPrice.value)} ₪`; filterNow(); });
+
+    // ניקוי
+    document.getElementById("clearFilters").addEventListener("click",()=>{
+      qCity.value="";
+      minRooms.value="0";
+      maxPrice.value="12000";
+      priceOut.textContent="12,000 ₪";
+      filterNow();
+    });
+
+    // הפעלה ראשונית – מציג את כולן
+    filterNow();
+  </script>
+    
 </body>
 </html>

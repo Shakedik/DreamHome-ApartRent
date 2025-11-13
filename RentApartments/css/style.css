@@ -382,3 +382,639 @@ footer {
     width: 100%;
   }
 }
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* יחס 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin: 30px auto;
+  max-width: 800px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-wrapper {
+  display: flex;             /* מאפשר למרכז אלמנטים בתוך הקונטיינר */
+  justify-content: center;   /* ממרכז לרוחב */
+  margin: 30px auto;         /* מוסיף רווח ומציב באמצע הדף */
+}
+/* ==== עיצוב למסגרת הסרטון ==== */
+.tips-section {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.tips-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.tips-card h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.tips-card p {
+  color: #444;
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+}
+
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.video-wrapper iframe {
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 700px;
+  height: 390px;
+}
+.whatsapp-contact {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.whatsapp-btn {
+  background-color: #25d366;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+.gov-link {
+  color: var(--secondary);
+  font-weight: 700;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.gov-link:hover {
+  color: var(--accent);
+}
+.about-link {
+  text-align: center;
+  background: #ffffff;
+  padding: 26px 40px;
+  margin: 50px auto;
+  max-width: 950px; /* ⬅️ הוגדל מ-780px */
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  transition: transform 0.3s ease;
+}
+
+.about-link:hover {
+  transform: translateY(-4px);
+}
+
+.about-link p {
+  margin: 0;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.gov-link {
+  color: var(--secondary);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  transition: 0.3s ease;
+  white-space: nowrap; /* ⬅️ מבטיח שהמשפט לא יישבר */
+}
+
+.gov-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--secondary);
+  text-shadow: 0 0 6px rgba(255, 204, 0, 0.4);
+}
+
+.popular-cities {
+  text-align: center;
+  padding: 70px 20px;
+  background: #f5f7fa;
+}
+
+.popular-cities h2 {
+  font-size: 2rem;
+  color: #0c2c55;
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  color: #444;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.city-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.city-card {
+  flex: 1 1 220px;
+  max-width: 260px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.city-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.city-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.city-card h3 {
+  color: #0c2c55;
+  font-size: 1.2rem;
+  margin: 10px 0 4px;
+}
+
+.city-card p {
+  color: #444;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+/* ==== טבלת השוואת מחירים ==== */
+.price-compare {
+  text-align: center;
+  padding: 70px 20px;
+  background-color: #fff;
+}
+
+.price-compare h2 {
+  font-size: 2rem;
+  color: #0c2c55;
+  margin-bottom: 10px;
+}
+
+.price-table {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto 0;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: "Heebo", sans-serif;
+}
+
+.price-table th {
+  background-color: #0c2c55;
+  color: white;
+  font-weight: 600;
+  padding: 14px;
+}
+
+.price-table td {
+  background-color: #f9f9f9;
+  padding: 12px;
+  color: #333;
+  font-size: 1rem;
+}
+
+.price-table tr:nth-child(even) td {
+  background-color: #f0f3f7;
+}
+
+.price-table tr:hover td {
+  background-color: #e9eef5;
+}
+
+.up {
+  color: #0b7a26;
+  font-weight: bold;
+}
+
+.down {
+  color: #c00;
+  font-weight: bold;
+}
+
+.price-table td,
+.price-table th {
+  border: 1px solid #ddd;
+}
+
+/* ==== ביקורות לקוחות ==== */
+.reviews {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #f5f7fa;
+}
+
+.reviews h2 {
+  font-size: 2rem;
+  color: #0c2c55;
+  margin-bottom: 10px;
+}
+
+.reviews-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  width: 280px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.review-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #0c2c55;
+}
+
+.review-card h3 {
+  color: #0c2c55;
+  margin: 10px 0 5px;
+}
+
+.review-card p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.stars {
+  color: #f4b400;
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+.podcast-section {
+  background: #fff;
+  margin: 60px auto;
+  padding: 40px 25px;
+  max-width: 900px;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.podcast-section h2 {
+  color: #0f3057;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.podcast-section p {
+  color: #444;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+/* ===== שגיאות בטופס ===== */
+.error {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ===== POPUP ===== */
+#successPopup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+#successPopup.show {
+  display: flex;
+}
+
+.popup-inner {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: fadePop 0.35s ease;
+}
+
+.popup-inner h3 {
+  margin-top: 0;
+  color: #0f3057;
+}
+
+#closeSuccess {
+  margin-top: 15px;
+  background: #0f3057;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@keyframes fadePop {
+  from {opacity: 0; transform: scale(.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+/* --- כותרת עמוד צור קשר --- */
+.contact h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #0f3057;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.contact h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #f9d342;
+  margin: 10px auto 25px;
+  border-radius: 10px;
+}
+
+/* --- תיבת הטופס --- */
+.card-form {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 35px 40px;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: 0.3s;
+}
+
+.card-form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* --- תוויות --- */
+.card-form label {
+  font-weight: 600;
+  color: #0f3057;
+  margin-bottom: 4px;
+}
+
+/* --- קופסאות קלט עם אייקונים --- */
+.card-form input,
+.card-form textarea {
+  width: 100%;
+  padding: 14px 16px 14px 42px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: 0.3s;
+  background-color: #fafafa;
+  background-repeat: no-repeat;
+  background-position: 14px center;
+}
+
+.card-form input#name {
+  background-image: url("../images/icons/user.png");
+}
+
+.card-form input#email {
+  background-image: url("../images/icons/mail.png");
+}
+
+.card-form input:focus,
+.card-form textarea:focus {
+  outline: none;
+  border-color: #0f3057;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(15, 48, 87, 0.15);
+}
+
+/* --- כפתור שליחה מהמם --- */
+.card-form button {
+  background: linear-gradient(135deg, #0f3057, #1b4a7a);
+  color: #fff;
+  border: none;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 700;
+}
+
+.card-form button:hover {
+  background: linear-gradient(135deg, #134470, #1e5b90);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* --- הודעות שגיאה --- */
+.error {
+  color: #d62828;
+  font-size: 0.85rem;
+  min-height: 18px;
+}
+
+/* 🔥 WHATSAPP כפתור משופר --- */
+.whatsapp-contact {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+  padding: 14px 26px;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-4px);
+  background: #1ebe5a;
+}
+
+/* מצב לילה */
+body.dark-mode .card-form {
+  background: #1e1e1e;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .card-form input,
+body.dark-mode .card-form textarea {
+  background-color: #2b2b2b;
+  border-color: #444;
+  color: #eee;
+}
+
+body.dark-mode .card-form input:focus,
+body.dark-mode .card-form textarea:focus {
+  border-color: #f9d342;
+  box-shadow: 0 0 0 3px rgba(249,211,66,0.3);
+}
+
+body.dark-mode .contact h2 {
+  color: #f9d342;
+}
+.card-form input#name {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%230f3057" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>');
+}
+
+.card-form input#email {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%230f3057" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>');
+}
+
+.card-form textarea#message {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%230f3057" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 6H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H3V8h18v10z"/></svg>');
+}
+
+#message {
+  background-image: none !important;
+  padding-left: 20px !important; /* מחזיר padding רגיל */
+}
+/* שדה הודעה — מעוצב ובלי אייקון */
+#message {
+  background-image: none !important;
+  padding: 16px;
+  font-size: 1rem;
+  border: 2px solid #d0d5dd;
+  border-radius: 12px;
+  min-height: 140px;
+  resize: vertical; /* תוכלי לגרור ולשנות גובה */
+  transition: 0.25s ease;
+}
+
+/* אפקט יפה ב-Focus */
+#message:focus {
+  border-color: #0f3057;
+  box-shadow: 0 0 0 4px rgba(15, 48, 87, 0.15);
+  outline: none;
+}
+
+/* טקסט placeholder */
+#message::placeholder {
+  color: #999;
+  font-size: 0.95rem;
+}
+/* כפתור מצב תאורה צף */
+.floating-theme-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #0f3057;
+  color: #f9d342;
+  font-size: 1.7rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: 0.25s ease;
+  z-index: 2000;
+}
+
+/* Hover */
+.floating-theme-btn:hover {
+  transform: scale(1.12);
+  background-color: #0c2647;
+}
+
+/* במצב לילה — הצבעים מתחלפים */
+body.dark-mode .floating-theme-btn {
+  background-color: #f9d342;
+  color: #0f3057;
+}
+/* לוגו הכותרת */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.site-logo img {
+  height: 40px;     /* אפשר לשנות לגודל שאת רוצה */
+  width: auto;
+  border-radius: 8px; /* אם את רוצה שזה יהיה מעוגל */
+  object-fit: contain;
+}
+

@@ -25,6 +25,105 @@
       --light-text: #222;
       --dark-text: #eee;
     }
+/* --- המספרים שלנו --- */
+.stats-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.stats-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f3057;
+  margin-bottom: 25px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.stat-card {
+  background: #f9fafc;
+  padding: 25px 10px;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  font-weight: 700;
+  color: #0f3057;
+  font-size: 1.2rem;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.stat-card span {
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+/* --- כותרות עמוד האודות --- */
+
+/* כותרת ראשית (H2) – “מי אנחנו” */
+.about h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #0f3057;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.about h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #f9d342;
+  margin: 10px auto 0;
+  border-radius: 4px;
+}
+
+/* כותרת משנית (H3) – “מפת המשרד הראשי” */
+.about h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #133b63;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  text-align: center;
+  position: relative;
+}
+
+.about h3::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #f9d342;
+  margin: 8px auto 0;
+  border-radius: 4px;
+}
+
+/* פסקה תחת הכותרת */
+.about p {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 25px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
 
     body {
       font-family: "Heebo", sans-serif;
@@ -131,14 +230,19 @@
 
 <body>
   <header>
-    <h1>🏡 ApartRent</h1>
+    <h1 class="site-logo">
+  <img src="images/index_logo.png" alt="ApartRent Logo">
+  ApartRent
+</h1>
+
     <nav>
       <ul>
         <li><a href="index.html">בית</a></li>
         <li><a href="apartments.html">דירות</a></li>
-        <li><a href="services.html">שירותים</a></li>
+        <li><a href="help.html">כאן כדי לעזור</a></li>
         <li><a href="about.html">אודות</a></li>
-        <li><button id="theme-toggle" title="החלף מצב תאורה">🌙</button></li>
+        <button id="floating-theme-btn" class="floating-theme-btn">🌙</button>
+
         <li><a href="contact.html">צור קשר</a></li>
       </ul>
     </nav>
@@ -160,33 +264,65 @@
       </iframe>
     </div>
 
-    <h3>מחירים ממוצעים לפי אזור</h3>
-    <table>
-      <tr><th>עיר</th><th>מחיר ממוצע</th><th>מס׳ חדרים</th></tr>
-      <tr><td>תל אביב</td><td>8,200 ₪</td><td>3</td></tr>
-      <tr><td>הרצליה</td><td>9,100 ₪</td><td>4</td></tr>
-      <tr><td>רחובות</td><td>6,200 ₪</td><td>5</td></tr>
-    </table>
+   <!-- 🌟 המספרים שלנו – במקום הטבלה! -->
+    <section class="stats-section">
+      <h3 class="stats-title">המספרים שלנו 📊</h3>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span>⭐ +200</span>
+          דירות באתר
+        </div>
+
+        <div class="stat-card">
+          <span>🔍 1,500+</span>
+          חיפושים בחודש
+        </div>
+
+        <div class="stat-card">
+          <span>🤝 98%</span>
+          שביעות רצון משתמשים
+        </div>
+
+        <div class="stat-card">
+          <span>🕒 3 ימים</span>
+          זמן ממוצע למציאת דירה
+        </div>
+      </div>
+    </section>
   </main>
+<section class="about-link">
+  <p>
+    למידע נוסף על זכויות שוכרי דירות בישראל, מומלץ להיכנס לאתר
+    <a href="https://www.kolzchut.org.il/he/%D7%A9%D7%95%D7%9B%D7%A8%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA"
+       target="_blank" class="gov-link">
+       🏠 כל זכות – זכותך לדעת, זכותך לקבל
+    </a>
+  </p>
+</section>
 
   <footer>
     <p>© 2025 ApartRent | כל הזכויות שמורות</p>
   </footer>
 
   <script>
-  const toggleBtn = document.getElementById("theme-toggle");
-  const body = document.body;
+// כפתור מצב לילה צף
+const themeBtn = document.getElementById("floating-theme-btn");
+const body = document.body;
 
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark-mode");
-    toggleBtn.textContent = "☀️";
-  }
+// טעינה — אם נבחר Dark בעבר, טען אותו
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-mode");
+  themeBtn.textContent = "☀️";
+}
 
-  toggleBtn.addEventListener("click", () => {
-    const isDark = body.classList.toggle("dark-mode");
-    toggleBtn.textContent = isDark ? "☀️" : "🌙";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
+// לחיצה — החלפת מצב
+themeBtn.addEventListener("click", () => {
+  const isDark = body.classList.toggle("dark-mode");
+  themeBtn.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
 </script>
 
 </body>

@@ -247,14 +247,19 @@
 
 <body>
   <header>
-    <h1>🏡 ApartRent</h1>
+    <h1 class="site-logo">
+  <img src="images/index_logo.png" alt="ApartRent Logo">
+  ApartRent
+</h1>
+
     <nav>
       <ul>
         <li><a href="index.html" class="active">בית</a></li>
         <li><a href="apartments.html">דירות</a></li>
-        <li><a href="services.html">שירותים</a></li>
+        <li><a href="help.html">כאן כדי לעזור</a></li>
         <li><a href="about.html">אודות</a></li>
-        <li><button id="theme-toggle" title="החלף מצב תאורה">🌙</button></li>
+        <button id="floating-theme-btn" class="floating-theme-btn">🌙</button>
+
         <li><a href="contact.html">צור קשר</a></li>
       </ul>
     </nav>
@@ -268,46 +273,160 @@
     </div>
   </section>
 
-  <section class="intro">
-    <h2>למה לבחור ב-ApartRent?</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>🏠 מבחר רחב</h3>
-        <p>מאגר דירות בכל רחבי הארץ — מכל הסוגים ובכל הגדלים.</p>
-      </div>
-      <div class="service-card">
-        <h3>📷 תמונות אמיתיות</h3>
-        <p>כל נכס מוצג עם תמונות עדכניות ואמינות כדי שתדע בדיוק מה אתה מקבל.</p>
-      </div>
-      <div class="service-card">
-        <h3>💬 שירות אישי</h3>
-        <p>צוות מקצועי שזמין לך לייעוץ וליווי לאורך כל הדרך.</p>
-      </div>
-      <div class="service-card">
-        <h3>📱 אתר רספונסיבי</h3>
-        <p>מותאם לכל מסך – מהמחשב ועד הסמארטפון, בקלות ובנוחות.</p>
-      </div>
+  <section class="tips-section">
+  <div class="tips-card">
+    <h2>🏙️ טיפים למציאת הדירה המושלמת</h2>
+    <p>
+      לפני שחותמים על חוזה, חשוב לדעת איך לבחור נכון. הנה סרטון קצר שיעזור לכם להבין
+      מה לבדוק כששוכרים דירה:
+    </p>
+
+    <div class="video-wrapper">
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/pFnqxv3rcOA?si=EMbfK0Z8fbOfv3Un&amp;start=3"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
     </div>
-  </section>
+  </div>
+</section>
+
+
+<section class="popular-cities">
+  <h2>🏙️ הערים המבוקשות ביותר להשכרה</h2>
+  <p class="section-desc">הכירו את היעדים החמים ביותר למגורים בישראל — לפי ביקוש ומחירי שכירות.</p>
+
+  <div class="city-grid">
+    <div class="city-card">
+      <img src="images/telaviv.jpg" alt="תל אביב">
+      <h3>תל אביב</h3>
+      <p>ממוצע שכירות: ₪7,800</p>
+    </div>
+    <div class="city-card">
+      <img src="images/jerusalem.jpg" alt="ירושלים">
+      <h3>ירושלים</h3>
+      <p>ממוצע שכירות: ₪6,200</p>
+    </div>
+    <div class="city-card">
+      <img src="images/haifa.jpg" alt="חיפה">
+      <h3>חיפה</h3>
+      <p>ממוצע שכירות: ₪4,500</p>
+    </div>
+    <div class="city-card">
+      <img src="images/eilat.jpg" alt="אילת">
+      <h3>אילת</h3>
+      <p>ממוצע שכירות: ₪5,200</p>
+    </div>
+  </div>
+</section>
+
+<section class="price-compare">
+  <h2>💰 השוואת מחירי שכירות לפי אזור</h2>
+  <p class="section-desc">לפניכם ממוצעי מחירים של דירות 3 חדרים בערים שונות ברחבי הארץ — לפי נתוני 2025.</p>
+
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>עיר</th>
+        <th>ממוצע שכירות (₪)</th>
+        <th>שינוי משנה שעברה</th>
+        <th>דירוג ביקוש ⭐</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>תל אביב</td>
+        <td>7,800 ₪</td>
+        <td class="up">+5%</td>
+        <td>⭐⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>ירושלים</td>
+        <td>6,200 ₪</td>
+        <td class="up">+3%</td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>חיפה</td>
+        <td>4,500 ₪</td>
+        <td class="down">−2%</td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>ראשון לציון</td>
+        <td>5,900 ₪</td>
+        <td class="up">+4%</td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>באר שבע</td>
+        <td>3,800 ₪</td>
+        <td class="down">−1%</td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>אילת</td>
+        <td>5,200 ₪</td>
+        <td class="up">+6%</td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="reviews">
+  <h2>💬 מה הלקוחות שלנו אומרים</h2>
+  <p class="section-desc">אלפי משתמשים כבר מצאו את הדירה המושלמת בעזרת ApartRent — הנה כמה מהביקורות שלהם:</p>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <img src="images/rev1.jpg" alt="אורית לוי" class="review-img">
+      <h3>יהונתן לוי</h3>
+      <p class="stars">⭐⭐⭐⭐⭐</p>
+      <p>"מצאתי דירה מהממת תוך יומיים בלבד! האתר נוח, ברור, וכל התהליך היה פשוט מדהים."</p>
+    </div>
+
+    <div class="review-card">
+      <img src="images/rev2.jpg" alt="דניאל כהן" class="review-img">
+      <h3>דניאל כהן</h3>
+      <p class="stars">⭐⭐⭐⭐</p>
+      <p>"השירות היה אדיב ומקצועי. אהבתי את מערכת הסינון שצימצמה לי את כל ההתלבטויות!"</p>
+    </div>
+
+    <div class="review-card">
+      <img src="images/rev3.jpg" alt="יעל רז" class="review-img">
+      <h3>יעל רז</h3>
+      <p class="stars">⭐⭐⭐⭐⭐</p>
+      <p>"ממש מרגישה שמצאתי את הבית שלי בזכותכם ❤️ תודה על חוויה מושלמת!"</p>
+    </div>
+  </div>
+</section>
+
 
   <footer>
     <p>© 2025 ApartRent | כל הזכויות שמורות</p>
   </footer>
 
   <script>
-    const toggleBtn = document.getElementById("theme-toggle");
-    const body = document.body;
+    // כפתור מצב לילה צף
+const themeBtn = document.getElementById("floating-theme-btn");
+const body = document.body;
 
-    if (localStorage.getItem("theme") === "dark") {
-      body.classList.add("dark-mode");
-      toggleBtn.textContent = "☀️";
-    }
+// טעינה — אם נבחר Dark בעבר, טען אותו
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-mode");
+  themeBtn.textContent = "☀️";
+}
 
-    toggleBtn.addEventListener("click", () => {
-      const isDark = body.classList.toggle("dark-mode");
-      toggleBtn.textContent = isDark ? "☀️" : "🌙";
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
+// לחיצה — החלפת מצב
+themeBtn.addEventListener("click", () => {
+  const isDark = body.classList.toggle("dark-mode");
+  themeBtn.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
   </script>
 </body>
 </html>
