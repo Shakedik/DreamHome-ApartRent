@@ -1018,3 +1018,222 @@ body.dark-mode .floating-theme-btn {
   object-fit: contain;
 }
 
+/* ================================
+      DARK MODE GLOBAL
+================================ */
+body.dark-mode {
+  background-color: #0d1117 !important;
+  color: #e6edf3 !important;
+}
+
+/* טקסטים */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode a,
+body.dark-mode li {
+  color: #e6edf3 !important;
+}
+
+/* --- HEADER --- */
+body.dark-mode header {
+  background-color: #161b22 !important;
+}
+
+body.dark-mode nav a {
+  color: #e6edf3 !important;
+}
+
+/* --- HERO --- */
+body.dark-mode .hero::before {
+  background: rgba(0,0,0,0.65) !important;
+}
+
+body.dark-mode .hero h2 {
+  color: #fff !important;
+}
+
+body.dark-mode .hero p {
+  color: #ddd !important;
+}
+
+/* --- INTRO & טיפים --- */
+body.dark-mode .intro,
+body.dark-mode .tips-card {
+  background-color: #1a1f27 !important;
+  color: #e6edf3 !important;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.05) !important;
+}
+
+body.dark-mode .tips-card h2 {
+  color: #e6edf3 !important;
+}
+
+/* --- VIDEO WRAPPER --- */
+body.dark-mode .video-wrapper iframe {
+  filter: brightness(0.85);
+}
+
+/* --- ערים מבוקשות --- */
+body.dark-mode .popular-cities {
+  background-color: #0d1117 !important;
+}
+
+body.dark-mode .city-card {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+body.dark-mode .city-card h3,
+body.dark-mode .city-card p {
+  color: #e6edf3 !important;
+}
+
+/* --- PRICE TABLE --- */
+body.dark-mode .price-compare {
+  background-color: #0d1117 !important;
+}
+
+body.dark-mode .price-table {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+}
+
+body.dark-mode .price-table th {
+  background-color: #30363d !important;
+  color: #fff !important;
+}
+
+body.dark-mode .price-table td {
+  background-color: #1c2128 !important;
+  border-color: #30363d !important;
+  color: #e6edf3 !important;
+}
+
+/* שינויי צבע לעליות/ירידות במחירים */
+body.dark-mode .up {
+  color: #4caf50 !important;
+}
+body.dark-mode .down {
+  color: #ff6b6b !important;
+}
+
+/* --- ביקורות --- */
+body.dark-mode .reviews {
+  background-color: #0d1117 !important;
+}
+
+body.dark-mode .review-card {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4) !important;
+}
+
+body.dark-mode .review-card h3 {
+  color: #f9d342 !important;
+}
+
+/* --- כפתור צף --- */
+body.dark-mode .floating-theme-btn {
+  background-color: #f9d342 !important;
+  color: #0f3057 !important;
+}
+
+/* --- FOOTER --- */
+body.dark-mode footer {
+  background-color: #161b22 !important;
+  color: #e6edf3 !important;
+}
+/* --- STATS SECTION (המספרים שלנו) --- */
+body.dark-mode .stats-section {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+  box-shadow: 0 4px 16px rgba(255,255,255,0.05) !important;
+}
+
+body.dark-mode .stat-card {
+  background-color: #2a2f37 !important;
+  color: #e6edf3 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+}
+
+body.dark-mode .stat-card span {
+  color: #f9d342 !important;
+}
+/* --- ABOUT-LINK רצועת המידע --- */
+body.dark-mode .about-link {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+}
+
+body.dark-mode .about-link a {
+  color: #f9d342 !important;
+}
+/* --- STEPS (שלבים למציאת הדירה) --- */
+body.dark-mode .steps-section {
+  background-color: #0d1117 !important;
+}
+
+body.dark-mode .step-card {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+body.dark-mode .step-card h3,
+body.dark-mode .step-card p {
+  color: #e6edf3 !important;
+}
+/* --- APARTMENT CARDS --- */
+body.dark-mode .apartment-card {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+body.dark-mode .apartment-card h3,
+body.dark-mode .apartment-card p {
+  color: #e6edf3 !important;
+}
+
+body.dark-mode .filters,
+body.dark-mode .filter-box {
+  background-color: #161b22 !important;
+  color: #e6edf3 !important;
+}
+
+body.dark-mode .filter-box select,
+body.dark-mode .filter-box input {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+  border: 1px solid #30363d !important;
+}
+/* --- CONTACT FORM --- */
+body.dark-mode .contact-form {
+  background-color: #1c2128 !important;
+  color: #e6edf3 !important;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background-color: #0d1117 !important;
+  color: #e6edf3 !important;
+  border: 1px solid #30363d !important;
+}
+
+body.dark-mode .contact-form button {
+  background-color: #f9d342 !important;
+  color: #0f3057 !important;
+}
+/* תמיד להשאיר את ההדר מקובע בכל העמודים */
+header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+body { padding-top: 80px; }

@@ -31,9 +31,9 @@
 <body>
   <header class="site-header">
     <h1 class="site-logo">
-  <img src="images/index_logo.png" alt="ApartRent Logo">
-  ApartRent
-</h1>
+      <img src="images/index_logo.png" alt="ApartRent Logo">
+      ApartRent
+    </h1>
 
     <button id="floating-theme-btn" class="floating-theme-btn">🌙</button>
     <nav class="navbar">
@@ -162,13 +162,20 @@
   <footer><p>© 2025 ApartRent | כל הזכויות שמורות</p></footer>
 
   <script>
-    // מצב לילה
-    const toggleBtn=document.getElementById("theme-toggle");
-    const body=document.body;
-    if(localStorage.getItem("theme")==="dark"){body.classList.add("dark");toggleBtn.textContent="☀️";}
-    toggleBtn.addEventListener("click",()=>{const isDark=body.classList.toggle("dark");
-      toggleBtn.textContent=isDark?"☀️":"🌙";
-      localStorage.setItem("theme",isDark?"dark":"light");});
+    // כפתור מצב לילה צף – כמו בשאר העמודים
+    const themeBtn = document.getElementById("floating-theme-btn");
+    const body = document.body;
+
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark-mode");
+      themeBtn.textContent = "☀️";
+    }
+
+    themeBtn.addEventListener("click", () => {
+      const isDark = body.classList.toggle("dark-mode");
+      themeBtn.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
 
     // Popup
     const cardsAll=document.querySelectorAll(".apartment-card");
