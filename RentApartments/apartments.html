@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
   <script defer src="js/script.js"></script>
 
+
 </head>
 
 <body>
@@ -18,7 +19,55 @@
     </h1>
 
     <button id="floating-theme-btn" class="floating-theme-btn">🌙</button>
+
     <nav class="navbar">
+        <div class="logo">
+            <a href="#"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">בית</a></li>
+            <li><a href="apartments.html" class="active">דירות</a></li>
+            <li><a href="help.html">כאן כדי לעזור</a></li>
+            <li><a href="about.html">אודות</a></li>
+            <li><a href="contact.html">צור קשר</a></li>
+
+        </ul>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <script>
+        let toggleMode = false;
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                if (!toggleMode) {
+                    menuToggle.classList.add('active');
+                } else {
+                    menuToggle.classList.remove('active');
+                }
+                navLinks.classList.toggle('active');
+                toggleMode = !toggleMode;
+            });
+
+
+
+        });
+
+
+
+    </script>
+
+
+
+
+
+    <!-- <nav class="navbar">
       <ul>
         <li><a href="index.html">בית</a></li>
         <li><a href="apartments.html" class="active">דירות</a></li>
@@ -26,7 +75,7 @@
         <li><a href="about.html">אודות</a></li>
         <li><a href="contact.html">צור קשר</a></li>
       </ul>
-    </nav>
+    </nav> -->
   </header>
 
   <main>
