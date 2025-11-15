@@ -8,117 +8,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
   <script defer src="js/script.js"></script>
-
-  <style>
-    :root {
-      --primary-color: #0f3057;
-      --accent-color: #f9d342;
-      --light-bg: #f5f7fa;
-      --dark-bg: #1b1b1b;
-      --light-text: #222;
-      --dark-text: #eee;
-    }
-
-    body {
-      font-family: "Heebo", sans-serif;
-      margin: 0;
-      background-color: var(--light-bg);
-      color: var(--light-text);
-      padding-top: 75px;
-      transition: background-color 0.4s, color 0.4s;
-    }
-
-    header {
-      background-color: var(--primary-color);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 40px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    header h1 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a.active {
-      color: var(--accent-color);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 2px;
-    }
-
-    nav a:hover {
-      color: var(--accent-color);
-    }
-
-    #theme-toggle {
-      background-color: #e0e0e0;
-      border: none;
-      font-size: 1.2rem;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    #theme-toggle:hover {
-      transform: scale(1.1);
-      background-color: #d5d5d5;
-    }
-
-    footer {
-      background-color: var(--primary-color);
-      color: #fff;
-      text-align: center;
-      padding: 16px;
-      font-size: 0.9rem;
-      transition: background-color 0.4s;
-    }
-
-    body.dark-mode {
-      background-color: var(--dark-bg);
-      color: var(--dark-text);
-    }
-
-    body.dark-mode header {
-      background-color: #111;
-    }
-
-    body.dark-mode footer {
-      background-color: #111;
-    }
-  </style>
 </head>
 
 <body>
@@ -133,7 +22,7 @@
       <ul>
         <li><a href="index.html">בית</a></li>
         <li><a href="apartments.html">דירות</a></li>
-        <li><a href="services.html">שירותים</a></li>
+        <li><a href="help.html">כאן כדי לעזור</a></li>
         <li><a href="about.html">אודות</a></li>
         <button id="floating-theme-btn" class="floating-theme-btn">🌙</button>
 
