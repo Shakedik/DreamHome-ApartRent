@@ -5,22 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ApartRent - אודות</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/script.js"></script>
-</head>
-<body>
-  <!DOCTYPE html>
-<html lang="he">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ApartRent</title>
-  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
-   <header class="site-header">
+  <header class="site-header">
     <h1 class="site-logo">
       <img src="images/index_logo.png" alt="ApartRent Logo">
       ApartRent
@@ -38,7 +27,6 @@
             <li><a href="help.html">כאן כדי לעזור</a></li>
             <li><a href="about.html"class="active">אודות</a></li>
             <li><a href="contact.html">צור קשר</a></li>
-
         </ul>
         <div class="menu-toggle">
             <span class="bar"></span>
@@ -46,46 +34,7 @@
             <span class="bar"></span>
         </div>
     </nav>
-
-    <script>
-        let toggleMode = false;
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            menuToggle.addEventListener('click', () => {
-                if (!toggleMode) {
-                    menuToggle.classList.add('active');
-                } else {
-                    menuToggle.classList.remove('active');
-                }
-                navLinks.classList.toggle('active');
-                toggleMode = !toggleMode;
-            });
-
-
-
-        });
-
-
-
-    </script>
-
-
-
-
-
-    <!-- <nav class="navbar">
-      <ul>
-        <li><a href="index.html">בית</a></li>
-        <li><a href="apartments.html" class="active">דירות</a></li>
-        <li><a href="help.html">כאן כדי לעזור</a></li>
-        <li><a href="about.html">אודות</a></li>
-        <li><a href="contact.html">צור קשר</a></li>
-      </ul>
-    </nav> -->
   </header>
-
 
   <main class="about">
     <h2>מי אנחנו</h2>
@@ -98,11 +47,10 @@
         width="100%" height="380" style="border:0; border-radius:12px;"
         loading="lazy" allowfullscreen
         referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3399.8469796243723!2d34.78052781515914!3d32.08048098119047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b873c13c1e9%3A0xb82b3d2ec2e7af7!2z16jXoNeZ15XXqNeZINeo15DXoNea!5e0!3m2!1she!2sil!4v1700000000000">
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1112.5152862086438!2d34.78176585934629!3d32.07921820573932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b68427f7151%3A0x7d25e01c10d3f269!2z157XmdeQ15TXlSDXl9eQINeQ15DXlSDXnNee15zXmdeQ15Q!5e0!3m2!1she!2sil!4v1700234500000!5m2!1she!2sil">
       </iframe>
     </div>
 
-   <!-- 🌟 המספרים שלנו – במקום הטבלה! -->
     <section class="stats-section">
       <h3 class="stats-title">המספרים שלנו 📊</h3>
 
@@ -129,39 +77,57 @@
       </div>
     </section>
   </main>
-<section class="about-link">
-  <p>
-    למידע נוסף על זכויות שוכרי דירות בישראל, מומלץ להיכנס לאתר
-    <a href="https://www.kolzchut.org.il/he/%D7%A9%D7%95%D7%9B%D7%A8%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA"
-       target="_blank" class="gov-link">
-       🏠 כל זכות – זכותך לדעת, זכותך לקבל
-    </a>
-  </p>
-</section>
+  
+  <section class="about-link">
+    <p>
+      למידע נוסף על זכויות שוכרי דירות בישראל, מומלץ להיכנס לאתר
+      <a href="https://www.kolzchut.org.il/he/%D7%A9%D7%95%D7%9B%D7%A8%D7%99_%D7%93%D7%99%D7%A8%D7%95%D7%AA"
+         target="_blank" class="gov-link">
+         🏠 כל זכות – זכותך לדעת, זכותך לקבל
+      </a>
+    </p>
+  </section>
 
   <footer>
     <p>© 2025 ApartRent | כל הזכויות שמורות</p>
   </footer>
 
   <script>
-// כפתור מצב לילה צף
-const themeBtn = document.getElementById("floating-theme-btn");
-const body = document.body;
+    // תסריט המבורגר מנוע
+    let toggleMode = false;
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-// טעינה — אם נבחר Dark בעבר, טען אותו
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark-mode");
-  themeBtn.textContent = "☀️";
-}
+        menuToggle.addEventListener('click', () => {
+            if (!toggleMode) {
+                menuToggle.classList.add('active');
+            } else {
+                menuToggle.classList.remove('active');
+            }
+            navLinks.classList.toggle('active');
+            toggleMode = !toggleMode;
+        });
+    });
 
-// לחיצה — החלפת מצב
-themeBtn.addEventListener("click", () => {
-  const isDark = body.classList.toggle("dark-mode");
-  themeBtn.textContent = isDark ? "☀️" : "🌙";
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-});
+    // כפתור מצב לילה צף
+    const themeBtn = document.getElementById("floating-theme-btn");
+    const body = document.body;
 
-</script>
+    // טעינה — אם נבחר Dark בעבר, טען אותו
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark-mode");
+      themeBtn.textContent = "☀️";
+    }
 
+    // לחיצה — החלפת מצב
+    themeBtn.addEventListener("click", () => {
+      const isDark = body.classList.toggle("dark-mode");
+      themeBtn.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
+
+  <script defer src="js/script.js"></script> 
 </body>
 </html>
